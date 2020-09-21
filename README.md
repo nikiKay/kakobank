@@ -24,7 +24,7 @@ API
  - 신분증인증
    - path : /create/account/certificate/idcard
    - input
-     * @param idcardCertTypeCode    - 신분증인증유형코드 (001:운전면허증 / 002:주민등록증)
+     * @param idcardCertTypeCode    - 신분증인증유형코드 (1:운전면허증 / 2:주민등록증)
      * @param registrationNumber    - 주민등록번호
      * @param driverLicenceNumber   - 운전면허증번호
      * @param name                  - 이름
