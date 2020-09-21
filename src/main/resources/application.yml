@@ -1,0 +1,43 @@
+logging:
+  level:
+    root: debug
+
+spring:
+
+  datasource:
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1
+    username: sa
+    password:
+    #password: 2019!@#
+    driver-class-name: org.h2.Driver
+    default-schema: EXT
+
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    show-sql: true
+
+  h2:
+    console:
+      enabled: true  #인베디드 DBMS 툴 사용
+
+server:
+  msa-ap:
+    internal:
+      connect-time-out: 5000
+      read-time-out: 5000
+
+      urls:
+        idcard-cert-dev: https://41d5bea5-f99e-4ef5-88ac-c71574ca21d7.mock.pstmn.io/ap/devcert
+        reception-withdraw-dev: https://41d5bea5-f99e-4ef5-88ac-c71574ca21d7.mock.pstmn.io/ap/reception/withdraw
+        reception-cancle-withdraw-dev: https://41d5bea5-f99e-4ef5-88ac-c71574ca21d7.mock.pstmn.io/ap/reception/cancle/withdraw
+
+    external:
+      connect-time-out: 5000
+      read-time-out: 5
+
+      urls:
+        account-dev-baseurl: https://41d5bea5-f99e-4ef5-88ac-c71574ca21d7.mock.pstmn.io
+
+        account-check-uri: /ap/external/account
+        account-transfer-uri: /ap/external/transfer
+
