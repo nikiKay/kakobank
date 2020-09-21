@@ -106,8 +106,7 @@ public class CreateAccountCertificateController {
   public ResponseEntity<CommonResponse> transfer(HttpServletRequest request, @RequestParam String bankCode, @RequestParam String accountNumber)
       throws BizException {
     StepEntity stepEntity = (StepEntity)request.getAttribute(CommonConstants.STEP_ENTITY);
-    stepEntity.setRegistrationNumber("830114118282");
-    stepEntity.setName("강성안");
+
     String brthDay = Optional.ofNullable(stepEntity.getRegistrationNumber()).orElseThrow(RuntimeException::new).substring(0,6);
     // 1. 이체인증 이력 관리 TABLE INSERT
     TransferCertEntity transferCertEntity = transferCertService.saveTransferCert(brthDay,
